@@ -1,0 +1,257 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+
+.home-nav {
+    padding: 0%;
+}
+
+/* logo css ------------------------------ */
+.home-nav .logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo .logo-icon {
+    font-size: x-large;
+}
+
+.logo-icon .second-i {
+    padding-right: 10px;
+    margin-left: -14px;
+}
+
+.logo .logo-name {
+    font-family: monospace;
+    margin-top: 5px;
+}
+
+/* menu link -------------------------------- */
+.home-menu-link ul {
+    list-style-type: none;
+    display: flex;
+    margin-top: 15px;
+    justify-content: center;
+}
+
+.home-menu-link li {
+    padding-right: 2rem;
+}
+
+.home-menu-link li a span {
+    color: #000;
+}
+
+/* home button -------------------------------------*/
+.home-nav-button {
+    display: flex;
+    align-items: center;
+}
+
+.home-nav-button .login-sign-box .login-sign-btn {
+    border-radius: 21px;
+    padding: 5px 20px;
+    border: 1px solid black;
+}
+
+.home-nav-button .post-job-box .post-job-btn {
+    border-radius: 21px;
+    padding: 5px 20px;
+    border: none;
+    background: rgb(3, 219, 3);
+    color: white;
+}
+
+.home-nav-button .login-sign-box .login-sign-btn:hover {
+    border: none;
+    background: rgb(3, 219, 3);
+    color: white;
+}
+
+.home-nav-button .post-job-box .post-job-btn:hover {
+    border: 1px solid black;
+    background: none;
+    color: #000;
+}
+
+/* main contain----------------------------------- */
+/* left */
+/* first */
+.home-banner-left .first-leftblock {
+    align-items: center;
+    margin-bottom: 7rem;
+}
+
+
+.home-banner-left .first-leftblock i {
+    margin-left: 45px;
+    font-size: 12px;
+    margin-top: 3rem;
+}
+
+.home-banner-left .first-leftblock img {
+    margin-left: 30px;
+
+}
+
+/* second */
+.home-banner-left .second-leftblock {
+    align-items: center;
+    margin-bottom: 7rem;
+}
+
+.home-banner-left .second-leftblock .dimond-img{
+    float: right;
+    margin-top: 28px;
+    border-radius: 50%;
+}
+
+/* third */
+.home-banner-left .third-leftblock {
+    align-items: center;
+    margin-bottom: 7rem;
+}
+
+.home-banner-left .third-leftblock .girl-img{
+   margin-left: 35px;
+   margin-bottom: -7rem;
+}
+
+/* right */
+/* first */
+.home-banner-rigt .first-rigtblock{
+    align-items: center;
+    margin-bottom: 7rem;
+}
+.home-banner-rigt .first-rigtblock i{
+    margin-top: 3rem;
+    font-size: 15px;
+
+}
+
+/* second */
+.home-banner-rigt .second-rigtblock{
+    align-items: center;
+    margin-bottom: 7rem;
+}
+
+.home-banner-rigt .second-rigtblock .drive-img{
+   border-radius: 50%;
+   margin-left: 20px;
+}
+
+.home-banner-rigt .second-rigtblock .man-img{
+    margin-left: 30px;
+    margin-top: -5rem;
+ }
+/* third */
+.home-banner-rigt .third-rigtblock{
+    align-items: center;
+}
+.home-banner-rigt .third-rigtblock i{
+    margin-bottom: 10rem;
+    font-size: 10px;
+
+}
+
+
+/* center main contain */
+
+.home-main-contain .home-main-title h1{
+    font-size: 4rem;
+    font-weight: 600;
+}
+
+
+/* How it's Work ---------------------------------------------------- */
+
+.horizantal-line{
+    border:1px solid rgb(127 127 127 / 68%);
+    margin-bottom: 6rem;
+}
+
+.home-steps-section-body .step-icon{
+    font-size: 55px;
+    margin-bottom: 10px;
+}
+
+.home-steps-section-body .step-title{
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.home-steps-section-body .step-description{
+    margin-bottom: 7rem;
+}
+
+.step-section-contain .step-arrow .arrow-img{
+    margin-left: -35px;
+}
+
+
+
+/* home-why-choose-us ------------------------------------------------- */
+
+.home-why-choose-us .why-choose-us-question{
+    color: rgb(3, 219, 3) ;
+}
+
+.home-why-choose-us .why-choose-us-answer h1{
+    font-size: 48px;
+    margin-bottom: 2rem;
+}
+
+.home-why-choose-us .second-most-search h5{
+    color: green;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.home-why-choose-us  .learn-more-btn{
+    color: white;
+    background:rgb(3, 219, 3)  ;
+    padding: 3px 15px;
+    border-radius: 20px;
+    width: 8rem;
+    border: none;
+    margin-bottom: 6rem;
+    margin-left: 12px;
+}
+
+
+/* top-company-section ---------------------------------- */
+.top-company-section{
+    background-color: rgb(234 245 226 / 88%);
+}
+
+.top-company-section .top-company-section-link{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.top-company-section .top-company-section-link a{
+    border-bottom: 1px solid rgb(3, 219, 3);
+    color: rgb(3, 219, 3);
+}
+
+.top-company-section .card{
+    border-radius: 30px;
+}
+
+.top-company-section .company-btn{
+    border: 1px solid rgb(3, 219, 3);
+    color: rgb(3, 219, 3);
+    background: white;
+    padding: 3px 15px;
+    border-radius: 20px;
+}
+
