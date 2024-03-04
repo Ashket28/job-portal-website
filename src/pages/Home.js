@@ -1,9 +1,11 @@
 import React from 'react'
 import './Home.css';
+import Footer from '../components/Footer';
+import { Link } from 'react-router-dom';
 function Home() {
     return (
         <>
-        {/* navbar */}
+            {/* navbar */}
             <div className='container-fluid px-4 home'>
                 <nav>
                     <div className="row mb-5 home-nav">
@@ -42,16 +44,20 @@ function Home() {
 
                         <div className='col-3 d-flex justify-content-end home-nav-button '>
                             <div className='px-2 login-sign-box'>
+                                <Link to="/LoginEmployee">
                                 <button className='login-sign-btn'> Login/Sign up </button>
+                                </Link>
                             </div>
                             <div className='post-job-box'>
+                            <Link to="/CompanyLogin">
                                 <button className='post-job-btn'>Post a job</button>
+                                </Link>
                             </div>
                         </div>
                     </div>
                 </nav>
 
-        {/*  main - block */}
+                {/*  main - block */}
                 <section>
                     <div className='row home-banner mb-5'>
                         <div className='col-3 home-banner-left'>
@@ -75,6 +81,28 @@ function Home() {
                             <div className='row home-main-title'>
                                 <h1>Experts for any Job</h1>
                             </div>
+                            <div className='row home-main-btn'>
+                                <div className='col'>
+                                    <Link to="/LoginEmployee">
+                                    <a className="find-job-btn" href="/">
+                                        <span className="top-key"></span>
+                                        <span className="text">Find a Job</span>
+                                        <span className="bottom-key-1"></span>
+                                        <span className="bottom-key-2"></span>
+                                    </a>
+                                    </Link>
+                                </div>
+                                <div className='col'>
+                                <Link to="/CompanyLogin">
+                                    <a className="find-job-btn" href="/">
+                                        <span className="top-key"></span>
+                                        <span className="text">Hire a Employee</span>
+                                        <span className="bottom-key-1"></span>
+                                        <span className="bottom-key-2"></span>
+                                    </a>
+                                    </Link>
+                                </div>
+                            </div>
 
                         </div>
                         <div className='col-3 home-banner-rigt'>
@@ -96,7 +124,7 @@ function Home() {
 
             </div>
 
-        {/*  steps  */}
+            {/*  steps  */}
             <div className='container'>
                 <hr className='horizantal-line' />
 
@@ -107,32 +135,32 @@ function Home() {
                     <div className='row step-section-contain'>
                         <div className='col'>
                             <div className='home-steps-section-body text-center'>
-                                <div className='step-icon'> <i className="fa-sharp fa-solid fa-circle-user" style={{color: "rgb(3, 219, 3)"}}></i></div>
+                                <div className='step-icon'> <i className="fa-sharp fa-solid fa-circle-user" style={{ color: "rgb(3, 219, 3)" }}></i></div>
                                 <h5 className='step-title'>Create Account</h5>
                                 <p className='step-description'>It's very easy to open an account and start your journey.</p>
                             </div>
                         </div>
                         <div className='col-1'>
                             <div className='step-arrow'>
-                                    <img className='arrow-img' src="https://static.thenounproject.com/png/546321-200.png" alt="arrow" width={120} height={70}/>
+                                <img className='arrow-img' src="https://static.thenounproject.com/png/546321-200.png" alt="arrow" width={120} height={70} />
                             </div>
                         </div>
                         <div className='col'>
-                        <div className='home-steps-section-body text-center'>
-                                <div className='step-icon'> <i className="fa-sharp fa-solid fa-circle-user" style={{color: "rgb(3, 219, 3)"}}></i></div>
+                            <div className='home-steps-section-body text-center'>
+                                <div className='step-icon'> <i className="fa-sharp fa-solid fa-circle-user" style={{ color: "rgb(3, 219, 3)" }}></i></div>
                                 <h5 className='step-title'>Complete your profile</h5>
                                 <p className='step-description'>Complete your profile with all te info to get attention of client.</p>
                             </div>
                         </div>
                         <div className='col-1'>
-                        <div className='step-arrow'>
-                                    <img className='arrow-img' src="https://static.thenounproject.com/png/546321-200.png" alt="arrow" width={120} height={70}/>
+                            <div className='step-arrow'>
+                                <img className='arrow-img' src="https://static.thenounproject.com/png/546321-200.png" alt="arrow" width={120} height={70} />
                             </div>
                         </div>
                         <div className='col'>
-                        <div className='home-steps-section-body text-center'>
-                        
-                                <div className='step-icon'><i className="fa-sharp fa-solid fa-circle-user" style={{color: "rgb(3, 219, 3)"}}></i></div>
+                            <div className='home-steps-section-body text-center'>
+
+                                <div className='step-icon'><i className="fa-sharp fa-solid fa-circle-user" style={{ color: "rgb(3, 219, 3)" }}></i></div>
                                 <h5 className='step-title'>Create Account</h5>
                                 <p className='step-description'>It's very easy to open an account and start your journey.</p>
                             </div>
@@ -143,43 +171,43 @@ function Home() {
                 <hr className='horizantal-line' />
 
                 <section className='home-why-choose-us'>
-                        <div className='row'>
-                                <div className='col-7'></div>
-                                <div className='col-5'>
-                                    <div className='row why-choose-us-question'><h6>Why choose us?</h6></div>
-                                    <div className='row why-choose-us-answer'><h1>World of talent at your fingertips</h1></div>
-                                    <div className='row second-most-search'>
-                                        <div className='col-11'><h5>Seamless search</h5></div>
-                                        <div className='col-1'> <span><i className="fa-solid fa-angle-up"></i></span></div>
-                                    </div>
-                                    <div className='row second-most-answer'>
-                                        <p>It only take 5 minutes, set-up is smooth and simple, with fully customisable 
-                                            page design to reflect your brand.
-                                        </p>
-                                    </div>
-                                    <hr />
-                                    <div className='row second-most-search'>
-                                        <div className='col-11'><h5>Seamless search</h5></div>
-                                        <div className='col-1'> <span><i className="fa-solid fa-angle-down"></i></span></div>
-                                    </div>
-                                    <hr />
-                                    <div className='row mb-5 second-most-search'>
-                                        <div className='col-11'><h5>Seamless search</h5></div>
-                                        <div className='col-1'> <span><i className="fa-solid fa-angle-down"></i></span></div>
-                                    </div>
+                    <div className='row'>
+                        <div className='col-7'></div>
+                        <div className='col-5'>
+                            <div className='row why-choose-us-question'><h6>Why choose us?</h6></div>
+                            <div className='row why-choose-us-answer'><h1>World of talent at your fingertips</h1></div>
+                            <div className='row second-most-search'>
+                                <div className='col-11'><h5>Seamless search</h5></div>
+                                <div className='col-1'> <span><i className="fa-solid fa-angle-up"></i></span></div>
+                            </div>
+                            <div className='row second-most-answer'>
+                                <p>It only take 5 minutes, set-up is smooth and simple, with fully customisable
+                                    page design to reflect your brand.
+                                </p>
+                            </div>
+                            <hr />
+                            <div className='row second-most-search'>
+                                <div className='col-11'><h5>Seamless search</h5></div>
+                                <div className='col-1'> <span><i className="fa-solid fa-angle-down"></i></span></div>
+                            </div>
+                            <hr />
+                            <div className='row mb-5 second-most-search'>
+                                <div className='col-11'><h5>Seamless search</h5></div>
+                                <div className='col-1'> <span><i className="fa-solid fa-angle-down"></i></span></div>
+                            </div>
 
-                                    <div className='row'>
-                                    <button className='learn-more-btn'> Learn more </button>
-                                    </div>
+                            <div className='row'>
+                                <button className='learn-more-btn'> Learn more </button>
+                            </div>
 
-                                </div>
                         </div>
+                    </div>
                 </section>
             </div>
 
 
 
-             {/* top company  */}
+            {/* top company  */}
             <section className='top-company-section'>
                 <div className='container'>
                     <div className='row py-5'>
@@ -231,13 +259,15 @@ function Home() {
                                 </div>
                             </div>
                         </div>
-                       
+
                     </div>
                 </div>
             </section>
 
-
-
+        <div className='mt-5'>
+        <Footer></Footer>
+        </div>
+            
         </>
     )
 }

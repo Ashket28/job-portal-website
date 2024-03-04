@@ -16,6 +16,7 @@ import BasicInfo from '../components/wizardformcomp/BasicInfo';
 import LastStep from '../components/wizardformcomp/LastStep';
 import Experience from '../components/wizardformcomp/Experience';
 import Eduction from '../components/wizardformcomp/Eduction';
+import { Link } from 'react-router-dom';
 
 
 
@@ -160,39 +161,30 @@ export default function WizardForm() {
                         </div>
                     </div>
                     <div className='form-content-body'>
-                        {ActiveStep === 4 ? "Thank You " :
-                            <>
-                                <div className='form-div'>
-                                    <form>
-                                        {getStepContent(ActiveStep)}
-                                    </form>
+                        <div className='form-div'>
+                            <form>
+                                {getStepContent(ActiveStep)}
+                            </form>
+                        </div>
+                        <div className="button-group" style={{ marginTop: ActiveStep === 0 ? '80px' : ActiveStep === 1 ? '116px' : ActiveStep === 2 ? "430px" : "137px" }}>
+                            <div className='row wizard-button'>
+                                <div className='col-6'>
+                                    <button className='wizard-previousbutton' onClick={handleBack} disabled={ActiveStep === 0}>
+                                        <i className="fa-solid fa-angle-left"></i>  Previous
+                                    </button>
                                 </div>
-                                <div className="button-group" style={{marginTop : ActiveStep === 0  ? '5rem' : ActiveStep === 1 ? '7rem' : ActiveStep === 2 ? "27rem" : "8rem"}}>
-                                    <div className='row wizard-button'>
-                                        <div className='col-6'>
-                                            <button className='wizard-previousbutton' onClick={handleBack} disabled={ActiveStep === 0}>
-                                                <i className="fa-solid fa-angle-left"></i>  Previous
-                                            </button>
-                                        </div>
-                                        <div className='col-6'>
-                                            <button className='wizard-nextbutton' onClick={handleNext}>{ActiveStep === 4 ? "Finish" : "Next"}
-                                                <i className="fa-solid fa-angle-right"></i>
-                                            </button>
-                                        </div>
-                                    </div>
+                                <div className='col-6'>
+
+                                    <button className='wizard-nextbutton' onClick={handleNext}> {ActiveStep === 3 ? <Link to="/Sidebar" className='finishtext'>Finish</Link> : "Next"}
+                                        <i className="fa-solid fa-angle-right"></i>
+                                    </button>
+
                                 </div>
-
-
-
-                            </>
-                        }
+                            </div>
+                        </div>
                     </div>
-
-
                 </div>
             </div>
-
-
         </>)
 }
 

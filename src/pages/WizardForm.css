@@ -40,15 +40,15 @@
 
 .form-content-body{
    
-    margin-left: 5rem;
-    margin-right: 5rem;
+    margin-left: 4rem;
+    margin-right: 4rem;
     height: 38rem;
 
 }
 
 /* button  */
 
-.wizard-button .wizard-nextbutton{
+.wizard-button .wizard-nextbutton {
     width: 7rem;
     border: none;
     background-image: linear-gradient(136deg, rgb(71 239 78) 0%, rgb(110 255 149) 50%, rgb(122 245 133) 100%);
@@ -56,10 +56,16 @@
     border-radius: 7px;
     height: 35px;
     color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.wizard-button .wizard-nextbutton .finishtext{
+    color: white;
 }
 
 .wizard-button .wizard-nextbutton i{
-    margin-left: 10px;
+    margin-left: 13px;
 }
 
 .wizard-button .wizard-previousbutton{

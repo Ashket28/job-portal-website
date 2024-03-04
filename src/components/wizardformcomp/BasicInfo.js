@@ -6,6 +6,7 @@ import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
+import { Controller } from 'react-hook-form';
 function BasicInfo() {
   return (
     <>
@@ -15,6 +16,7 @@ function BasicInfo() {
             <TextField id="outlined-basic" label="First Name" variant="standard" margin="normal" fullWidth color="success" />
           </div>
           <div className='col-6'>
+
             <TextField id="outlined-basic" label="Last Name" variant="standard" margin="normal" fullWidth color="success" />
           </div>
         </div>
