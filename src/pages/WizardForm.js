@@ -17,6 +17,7 @@ import LastStep from '../components/wizardformcomp/LastStep';
 import Experience from '../components/wizardformcomp/Experience';
 import Eduction from '../components/wizardformcomp/Eduction';
 import { Link } from 'react-router-dom';
+import { useForm, FormProvider } from 'react-hook-form';
 
 
 
@@ -107,6 +108,19 @@ ColorlibStepIcon.propTypes = {
 };
 
 export default function WizardForm() {
+    const useFormMethods = useForm({
+        defaultValues: {
+            FirstName: "",
+            LastName: "",
+            Email: "",
+            Country: "",
+            City: "",
+            mobileNo: "",
+            pincode: "",
+            DateofBirth: "",
+
+        }
+    });
     function getstep() {
         return [
             "Basic Infomation",
@@ -131,11 +145,17 @@ export default function WizardForm() {
     }
     const steps = getstep();
     const [ActiveStep, SetActiveStep] = useState(0);
-    const handleNext = () => {
+    const handleNext = (data) => {
+        console.log(data);
         SetActiveStep(ActiveStep + 1);
+
     }
     const handleBack = () => {
         SetActiveStep(ActiveStep - 1);
+        console.log(SetActiveStep)
+    }
+    const onSubmitWizardForm = (wizardFormData) => {
+        console.log("on submit wizard form : ", wizardFormData);
     }
     return (
         <>
@@ -162,23 +182,51 @@ export default function WizardForm() {
                     </div>
                     <div className='form-content-body'>
                         <div className='form-div'>
-                            <form>
-                                {getStepContent(ActiveStep)}
-                            </form>
+                            <FormProvider {...useFormMethods}>
+                                <form onSubmit={useFormMethods.handleSubmit(onSubmitWizardForm)}>
+                                    {getStepContent(ActiveStep)}
+
+                                    <div className="button-group" style={{ marginTop: ActiveStep === 0 ? '80px' : ActiveStep === 1 ? '176px' : ActiveStep === 2 ? "424px" : "164px" }}>
+                                        <div className='row wizard-button'>
+                                            <div className='col-6'>
+                                                <button className='wizard-previousbutton' onClick={handleBack} disabled={ActiveStep === 0}>
+                                                    <i className="fa-solid fa-angle-left"></i>  Previous
+                                                </button>
+                                            </div>
+                                            <div className='col-6'>
+                                                {ActiveStep === 3 ?
+                                                    <button className='wizard-nextbutton' type='submit' data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                        Finish <i className="fa-solid fa-angle-right"></i>
+                                                    </button>
+                                                    : <button className='wizard-nextbutton' type='submit' onClick={handleNext}>
+                                                        Next <i className="fa-solid fa-angle-right"></i>
+                                                    </button>
+                                                }                                               
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </form>
+                            </FormProvider>
                         </div>
-                        <div className="button-group" style={{ marginTop: ActiveStep === 0 ? '80px' : ActiveStep === 1 ? '116px' : ActiveStep === 2 ? "430px" : "137px" }}>
-                            <div className='row wizard-button'>
-                                <div className='col-6'>
-                                    <button className='wizard-previousbutton' onClick={handleBack} disabled={ActiveStep === 0}>
-                                        <i className="fa-solid fa-angle-left"></i>  Previous
-                                    </button>
-                                </div>
-                                <div className='col-6'>
+                    </div>
 
-                                    <button className='wizard-nextbutton' onClick={handleNext}> {ActiveStep === 3 ? <Link to="/Sidebar" className='finishtext'>Finish</Link> : "Next"}
-                                        <i className="fa-solid fa-angle-right"></i>
-                                    </button>
-
+                    <div className='wizard-complete-popup'>
+                        {/* <!-- Modal --> */}
+                        <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div className="modal-dialog modal-dialog-centered">
+                                <div className="modal-content wizard-popup-content">
+                                    <div className="modal-header wizard-popup-header">
+                                        <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div className="modal-body wizard-popup-body"  >
+                                        <h4>Your Profile Complete Successfully.</h4>
+                                    </div>
+                                    <div className="modal-footer wizard-popup-footer">
+                                        <Link to="/Sidebar" >
+                                            <button type="button" className="btn btn-primary popup-button" data-bs-dismiss="modal">Save</button>
+                                        </Link>
+                                    </div>
                                 </div>
                             </div>
                         </div>
