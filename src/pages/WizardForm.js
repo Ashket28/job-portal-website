@@ -118,7 +118,6 @@ export default function WizardForm() {
             mobileNo: "",
             pincode: "",
             DateofBirth: "",
-
         }
     });
     function getstep() {
@@ -152,11 +151,10 @@ export default function WizardForm() {
     }
     const handleBack = () => {
         SetActiveStep(ActiveStep - 1);
-        console.log(SetActiveStep)
     }
-    const onSubmitWizardForm = (wizardFormData) => {
-        console.log("on submit wizard form : ", wizardFormData);
-    }
+    // const onSubmitWizardForm = (wizardFormData) => {
+    //     console.log("on submit wizard form : ", wizardFormData);
+    // }
     return (
         <>
             <div className='wizard-bg'>
@@ -183,7 +181,7 @@ export default function WizardForm() {
                     <div className='form-content-body'>
                         <div className='form-div'>
                             <FormProvider {...useFormMethods}>
-                                <form onSubmit={useFormMethods.handleSubmit(onSubmitWizardForm)}>
+                                <form onSubmit={useFormMethods.handleSubmit(handleNext)}>
                                     {getStepContent(ActiveStep)}
 
                                     <div className="button-group" style={{ marginTop: ActiveStep === 0 ? '80px' : ActiveStep === 1 ? '176px' : ActiveStep === 2 ? "424px" : "164px" }}>
@@ -198,7 +196,7 @@ export default function WizardForm() {
                                                     <button className='wizard-nextbutton' type='submit' data-bs-toggle="modal" data-bs-target="#exampleModal">
                                                         Finish <i className="fa-solid fa-angle-right"></i>
                                                     </button>
-                                                    : <button className='wizard-nextbutton' type='submit' onClick={handleNext}>
+                                                    : <button className='wizard-nextbutton' type='submit'>
                                                         Next <i className="fa-solid fa-angle-right"></i>
                                                     </button>
                                                 }                                               
@@ -223,7 +221,7 @@ export default function WizardForm() {
                                         <h4>Your Profile Complete Successfully.</h4>
                                     </div>
                                     <div className="modal-footer wizard-popup-footer">
-                                        <Link to="/Sidebar" >
+                                        <Link to="/Home" >
                                             <button type="button" className="btn btn-primary popup-button" data-bs-dismiss="modal">Save</button>
                                         </Link>
                                     </div>
