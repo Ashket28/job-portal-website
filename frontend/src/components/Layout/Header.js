@@ -1,12 +1,36 @@
-import React from 'react'
+import React, { useContext, useEffect, useState } from "react";
 import { FaHome, FaUserCircle ,FaCaretDown } from "react-icons/fa";
 import { MdScreenSearchDesktop } from "react-icons/md";
 import { HiBuildingOffice2 } from "react-icons/hi2";
 import { PiUsersThreeFill } from "react-icons/pi";
 import { IoMdNotifications } from "react-icons/io";
 import './Header.css';
-import { Link } from 'react-router-dom';
+import { Context } from "../../index";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+import toast from "react-hot-toast";
 export default function Header(props) {
+
+
+  const [show, setShow] = useState(false);
+  const { isAuthorized, setIsAuthorized, user } = useContext(Context);
+  const navigateTo = useNavigate();
+
+  const handleLogout = async () => {
+    try {
+      const response = await axios.get("http://localhost:4000/api/v1/user/logout",{withCredentials: true,});
+      toast.success(response.data.message);
+      setIsAuthorized(false);
+      navigateTo("/LoginEmployee");
+    } catch (error) {
+      toast.error(error.response.data.message); 
+      setIsAuthorized(true);
+    }
+  };
+
+
+
+
   return (
     <>
       <div className='container-grid Header-body'>
@@ -32,7 +56,7 @@ export default function Header(props) {
                   <li>
                     <Link to="/Job" className='menu'>
                       <div className='menu-icon'> <MdScreenSearchDesktop size={24} /> </div>
-                      <span>Jobs</span>
+                      { user && user.name ? "Jobs" : "Emp" }
                     </Link>
                   </li>
                   <li>
@@ -64,7 +88,7 @@ export default function Header(props) {
               </div>
             </div>
             <div className='col-1'>
-              <button className='mainHome-logout-btn' onClick={props.toggle}>
+              <button className='mainHome-logout-btn' onClick={handleLogout}>
                Logout
               </button>
             </div>

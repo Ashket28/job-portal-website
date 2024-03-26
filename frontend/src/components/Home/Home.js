@@ -1,9 +1,9 @@
 import React from 'react'
 import './Home.css';
-import Header from '../components/Header';
-import Photo from '../img/icons/photo-svgrepo-com.svg'
-import video from '../img/icons/video-movie-play-svgrepo-com.svg'
-import calendar from '../img/icons/calendar-1-svgrepo-com.svg'
+import Header from '../Layout/Header';
+import Photo from '../../img/icons/photo-svgrepo-com.svg'
+import video from '../../img/icons/video-movie-play-svgrepo-com.svg'
+import calendar from '../../img/icons/calendar-1-svgrepo-com.svg'
 export default function Home() {
     return (
         <>

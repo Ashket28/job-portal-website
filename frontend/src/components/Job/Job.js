@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import './Job.css';
-import Header from '../components/Header';
+import Header from '../Layout/Header';
 import { CiSearch, CiLocationOn, CiCalendarDate } from "react-icons/ci";
 import { MdAccessTime } from "react-icons/md";
 import { MdCurrencyRupee } from "react-icons/md";

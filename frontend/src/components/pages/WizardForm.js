@@ -12,10 +12,10 @@ import { Stepper, Step, StepLabel } from "@material-ui/core";
 import './WizardForm.css';
 import { useState } from 'react';
 import { motion } from "framer-motion";
-import BasicInfo from '../components/wizardformcomp/BasicInfo';
-import LastStep from '../components/wizardformcomp/LastStep';
-import Experience from '../components/wizardformcomp/Experience';
-import Eduction from '../components/wizardformcomp/Eduction';
+import BasicInfo from './wizardformcomp/BasicInfo';
+import LastStep from './wizardformcomp/LastStep';
+import Experience from './wizardformcomp/Experience';
+import Eduction from './wizardformcomp/Eduction';
 import { Link } from 'react-router-dom';
 import { useForm, FormProvider } from 'react-hook-form';
 

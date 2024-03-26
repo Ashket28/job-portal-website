@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import img from '../img/Welcome Employers Register to Post Jobs.jpg'
+import img from '../../img/Welcome Employers Register to Post Jobs.jpg'
 import './CompanyLogin.css'
-import Validation from "../components/Com_log_val";
+import Validation from "../Com_log_val";
 export default function CompanyLogin() 
 {
   const [values, setvalues] = useState({

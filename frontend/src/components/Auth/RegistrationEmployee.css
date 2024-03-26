@@ -123,7 +123,6 @@
     cursor: pointer;
     border: none;
     padding: 0.7rem 2rem;
-    margin: 0 0 0 130px;
     font-family: inherit;
     font-size: inherit;
     position: relative;
@@ -168,6 +167,21 @@
    
    .reg-button:hover::before {
     transform: translate3d(100%, 0, 0);
+   }
+
+   .sing_in_link{
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+   }
+
+   .sing_in_link a{
+    color: #48c348;
+    transition: 500ms;
+   }
+
+   .sing_in_link a:hover{
+    color: #000;
    }
    /* ----------error------------- */
    .error{

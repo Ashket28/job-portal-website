@@ -1,6 +1,6 @@
 import React from 'react'
 import './HomeIntro.css';
-import Footer from '../components/Footer';
+import Footer from '../Layout/Footer';
 import { Link } from 'react-router-dom';
 function HomeIntro() {
     return (

@@ -1,8 +1,7 @@
 import React ,{useState} from 'react'
-import '../components/Validation'
 import './Forgot.css';
-import img from '../img/forgotpass.jpg';
-import Validation from '../components/Validation';
+import img from '../../img/forgotpass.jpg';
+import Validation from '../Validation';
 export default function Adv() {
   const [values,setvalues] = useState({
 		email:""
