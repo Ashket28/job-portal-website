@@ -83,45 +83,6 @@ input[type="email"]:focus:invalid {
   color: #cc1e2b;
   border-color: #cc1e2b;
 }
-input[type="text"]:valid ~ .validation,
-input[type="email"]:valid ~ .validation {
-  display: block;
-  border-color: #0C0;
-}
-input[type="text"]:valid ~ .validation span,
-input[type="email"]:valid ~ .validation span {
-  background: #0C0;
-  position: absolute;
-  border-radius: 6px;
-}
-input[type="text"]:valid ~ .validation span:first-child,
-input[type="email"]:valid ~ .validation span:first-child {
-  top: 30px;
-  left: 14px;
-  width: 20px;
-  height: 3px;
-  -webkit-transform: rotate(-45deg);
-          transform: rotate(-45deg);
-}
-input[type="text"]:valid ~ .validation span:last-child,
-input[type="email"]:valid ~ .validation span:last-child {
-  top: 35px;
-  left: 8px;
-  width: 11px;
-  height: 3px;
-  -webkit-transform: rotate(45deg);
-          transform: rotate(45deg);
-}
-
-.validation {
-  display: none;
-  position: absolute;
-  content: " ";
-  height: 60px;
-  width: 30px;
-  right: 15px;
-  top: 0px;
-}
 
 input[type="submit"] {
   border: none;
@@ -216,6 +177,47 @@ input[type="submit"]:hover {
   padding: 8px;
   color: #fff;
 }
+
+input[type="password"]:valid ~ .True_validator,
+input[type="email"]:valid ~ .True_validator {
+  display: block;
+  border-color: #0C0;
+}
+input[type="password"]:valid ~ .True_validator span,
+input[type="email"]:valid ~ .True_validator span {
+  background: #0C0;
+  position: absolute;
+  border-radius: 6px;
+}
+input[type="password"]:valid ~ .True_validator span:first-child,
+input[type="email"]:valid ~ .True_validator span:first-child {
+  top: 30px;
+  left: 14px;
+  width: 20px;
+  height: 3px;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+input[type="password"]:valid ~ .True_validator span:last-child,
+input[type="email"]:valid ~ .True_validator span:last-child {
+  top: 35px;
+  left: 8px;
+  width: 11px;
+  height: 3px;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.True_validator {
+  display: none;
+  position: absolute;
+  content: " ";
+  height: 60px;
+  width: 30px;
+  margin-left: 19rem;
+  margin-top: -3px;
+}
+
 .authPage .container form button {
   padding: 12px;
   text-align: center;

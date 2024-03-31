@@ -7,12 +7,16 @@ import reportWebVitals from './reportWebVitals';
 
 export const Context = createContext({
   isAuthorized: false,
+  isAuthorizedEmp: false,
 });
 
 const AppWrapper = () => {
   const [isAuthorized, setIsAuthorized] = useState(false);
   const [user, setUser] = useState({});
 
+  const [isAuthorizedEmp, setIsAuthorizedEmp] = useState(false);
+  const [employer, setEmployer] = useState({});
+console.log("index" + isAuthorized)
   return (
     <Context.Provider
       value={{
@@ -20,6 +24,10 @@ const AppWrapper = () => {
         setIsAuthorized,
         user,
         setUser,
+        isAuthorizedEmp, 
+        setIsAuthorizedEmp,
+        employer, 
+        setEmployer,
       }}
     >
       <App />

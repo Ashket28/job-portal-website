@@ -44,9 +44,9 @@ export default function RegistrationEmployee() {
     } catch (error) {
       toast.error(error.response.data.message);
     }
-  };
+  };  
   if (isAuthorized) {
-    return <Navigate to={'/WizardForm'} />
+    return <Navigate to={'/Home'} />
   }
 
   return (
@@ -87,7 +87,7 @@ export default function RegistrationEmployee() {
 
             </div>
 
-            <div className="sing_in_link">
+            <div className="sing_in_link">~
               <a href="/">
                 <Link to={"/LoginEmployee"}>sing in</Link>
               </a>

@@ -147,7 +147,6 @@ export default function WizardForm() {
     const handleNext = (data) => {
         console.log(data);
         SetActiveStep(ActiveStep + 1);
-
     }
     const handleBack = () => {
         SetActiveStep(ActiveStep - 1);

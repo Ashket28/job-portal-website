@@ -3,9 +3,9 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 import  cookieParser  from  "cookie-parser";
 import fileUpload from 'express-fileupload';
-import userRouter  from './routes/userRouter.js'
-import applicationRouter from './routes/applicationRouter.js'
-import jobRouter from './routes/jobRouter.js'
+import userRouter  from './routes/JobSeekerRoutes/userRouter.js'
+import jobRouter from './routes/JobSeekerRoutes/jobRoutes.js'
+import employerRouter from './routes/EmployerRoutes/EmployerRouter.js'
 import {dbConnection} from './database/dbconnection.js';
 import {errorMiddleware} from './middlewares/error.js';
 
@@ -27,9 +27,19 @@ app.use(fileUpload({
     tempFileDir: "/tmp/",
 }));
 
+// Routes users -----------------------------------
+
 app.use("/api/v1/user" , userRouter);
-app.use("/api/v1/appliction" , applicationRouter);
+// app.use("/api/v1/appliction" , applicationRouter);
 app.use("/api/v1/job" , jobRouter);
+
+//-------------------------------------------------
+
+// Routes employer --------------------------------
+
+app.use("/api/v1/employer", employerRouter);
+
+//-------------------------------------------------
 
 dbConnection();
 

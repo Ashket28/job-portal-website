@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { FaHome, FaUserCircle ,FaCaretDown } from "react-icons/fa";
+import { FaHome, FaUserCircle, FaCaretDown } from "react-icons/fa";
 import { MdScreenSearchDesktop } from "react-icons/md";
 import { HiBuildingOffice2 } from "react-icons/hi2";
 import { PiUsersThreeFill } from "react-icons/pi";
@@ -13,18 +13,30 @@ export default function Header(props) {
 
 
   const [show, setShow] = useState(false);
-  const { isAuthorized, setIsAuthorized, user } = useContext(Context);
+  const { isAuthorized, setIsAuthorized, user, isAuthorizedEmp, setIsAuthorizedEmp, employer } = useContext(Context);
   const navigateTo = useNavigate();
-
+  // console.log("header" + isAuthorized)
   const handleLogout = async () => {
     try {
-      const response = await axios.get("http://localhost:4000/api/v1/user/logout",{withCredentials: true,});
+      const response = await axios.get("http://localhost:4000/api/v1/user/logout", { withCredentials: true, });
       toast.success(response.data.message);
       setIsAuthorized(false);
       navigateTo("/LoginEmployee");
     } catch (error) {
-      toast.error(error.response.data.message); 
+      toast.error(error.response.data.message);
       setIsAuthorized(true);
+    }
+  };
+
+  const handleLogoutEmp = async () => {
+    try {
+      const response = await axios.get("http://localhost:4000/api/v1/employer/empLogout", { withCredentials: true, });
+      toast.success(response.data.message);
+      setIsAuthorizedEmp(false);
+      navigateTo("/CompanyLogin");
+    } catch (error) {
+      toast.error(error.response.data.message);
+      setIsAuthorizedEmp(true);
     }
   };
 
@@ -42,7 +54,7 @@ export default function Header(props) {
                 <i className="fa-solid fa-circle second-i" style={{ color: "rgb(4 241 55)" }}></i>
               </div>
               <span><h1 className='mainHome-logo-name'>jobi</h1></span>
-              <input className="mainHome-search-box" type="text"  placeholder="Search" />
+              <input className="mainHome-search-box" type="text" placeholder="Search" />
             </div>
             <div className='col-5'>
               <div className='menu-link'>
@@ -54,16 +66,28 @@ export default function Header(props) {
                     </Link>
                   </li>
                   <li>
-                    <Link to="/Job" className='menu'>
-                      <div className='menu-icon'> <MdScreenSearchDesktop size={24} /> </div>
-                      { user && user.name ? "Jobs" : "Emp" }
-                    </Link>
+                    {isAuthorized ?
+                      <Link to="/Job" className='menu'>
+                        <div className='menu-icon'> <MdScreenSearchDesktop size={24} /> </div>
+                        <span>Jobs</span>
+                      </Link> :
+                       <Link to="/PostJobs" className='menu'>
+                       <div className='menu-icon'> <MdScreenSearchDesktop size={24} /> </div>
+                       <span>PostJobs</span>
+                     </Link>
+                    }
                   </li>
                   <li>
-                    <a href="/" className='menu'>
-                      <div className='menu-icon'> <HiBuildingOffice2 size={24} />
-                      </div> <span>Company</span>
-                    </a>
+                  {isAuthorized ?
+                      <Link to="/" className='menu'>
+                        <div className='menu-icon'> <HiBuildingOffice2 size={24} /> </div>
+                        <span>Company</span>
+                      </Link> :
+                       <Link to="/MyJobs" className='menu'>
+                       <div className='menu-icon'> <HiBuildingOffice2 size={24} /> </div>
+                       <span>MyJobs</span>
+                     </Link>
+                    }
                   </li>
                   <li>
                     <a href="/" className='menu'>
@@ -88,9 +112,16 @@ export default function Header(props) {
               </div>
             </div>
             <div className='col-1'>
-              <button className='mainHome-logout-btn' onClick={handleLogout}>
-               Logout
-              </button>
+              {isAuthorized ?
+                <button className='mainHome-logout-btn' onClick={handleLogout}>
+                  Logout
+                </button> :
+                <button className='mainHome-logout-btn' onClick={handleLogoutEmp}>
+                  Logout
+                </button>
+              }
+
+
             </div>
           </div>
         </div>

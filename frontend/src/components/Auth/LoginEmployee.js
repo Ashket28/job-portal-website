@@ -32,6 +32,7 @@ export default function LoginEmployee() {
 		toast.error(error.response.data.message);
 	  }
 	};
+	console.log("login" + setIsAuthorized)
 	if (isAuthorized) {
 	  return <Navigate to={'/Home'} />
 	}
@@ -39,23 +40,6 @@ export default function LoginEmployee() {
 
 	return (
 		<>
-			{/* <div id="login-form-wrap">
-				<h2>Login</h2>
-				<form id="login-form">
-					<p>
-						<input type="text" id="username" name="username" placeholder="Username" required /><i class="validation" ><span></span><span></span></i>
-					</p>
-					<p>
-						<input type="email" id="email" name="email" placeholder="Email Address" required /><i class="validation"><span></span><span></span></i>
-					</p>
-					<p>
-						<input type="submit" id="login" value="Login"/>
-					</p>
-				</form>
-				<div id="create-account-wrap">
-					<p>Not a member? <a href="/">Create Account</a></p>
-					</div>
-				</div> */}
 			<section className="authPage">
 				<div className="container">
 					<div className="header">
@@ -65,20 +49,22 @@ export default function LoginEmployee() {
 						<div className="inputTag">
 							<label>Login As</label>
 							<div>
-								<input type="text" placeholder="abcd@gmail.com" onChange={(e) => setEmail(e.target.value)} value={email}  />
-
-								<FaUser />
+							<FaUser />
+								<input type="email" 
+								placeholder="abcd@gmail.com" 
+								onChange={(e) => setEmail(e.target.value)} value={email} required/>
+								<i class="True_validator" ><span></span><span></span></i>
 							</div>
 						</div>
 						<div className="inputTag">
 							<label>Password</label>
 							<div>
+							<MdLockPerson />
 								<input
 									type="password"
 									placeholder="Your Password"
-									onChange={(e) => setPassword(e.target.value)} value={password} 
-								/>
-								<MdLockPerson />
+									onChange={(e) => setPassword(e.target.value)} value={password} required/>
+									<i class="True_validator" ><span></span><span></span></i>
 							</div>
 						</div>
 					

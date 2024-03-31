@@ -1,28 +1,51 @@
-import React, { useState } from "react";
+import React, { useState,useContext } from "react";
 import img from '../../img/Welcome Employers Register to Post Jobs.jpg'
 import './CompanyLogin.css'
-import Validation from "../Com_log_val";
-export default function CompanyLogin() 
-{
-  const [values, setvalues] = useState({
-    com_name:"",
-    con_person: "",
-    con_num: "",
-    email: "",
-    gst:""
-  });
-  const hendleChange = (event) => {
-    setvalues({
-      ...values,
-      [event.target.name]: event.target.value,
-    });
+import { Link, Navigate } from "react-router-dom";
+import axios from "axios";
+import toast from "react-hot-toast";
+import { Context } from "../../index"
+
+export default function CompanyLogin() {
+
+  
+  const [employerEmail, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const { isAuthorizedEmp, setIsAuthorizedEmp, employer, setEmployer } = useContext(Context);
+
+  const hendleEmployerLogin = async (e) => {
+    e.preventDefault();
+    try {
+      const { data } = await axios.post("http://localhost:4000/api/v1/employer/empLogin", {
+        employerEmail, 
+        password
+      },
+        {
+          headers: { "Content-Type": "application/json", },
+          withCredentials: true,
+        }
+      );
+      console.log(data);
+      toast.success(data.message);
+      setEmail(employerEmail);
+      setPassword(password);
+      setIsAuthorizedEmp(true);
+    } catch (error) {
+      if (error.response && error.response.data) {
+        toast.error(error.response.data.message);
+      } else {
+        toast.error("An error occurred. Please try again." );
+        console.log(error)
+      }
+    }
   };
-  const hendleFromSubmit = (event) => {
-    event.preventDefault();
-    setErrors(Validation(values));
-  };
-  const [errors, setErrors] = useState({});
- 
+  if (isAuthorizedEmp) {
+    return <Navigate to={'/Home'} />
+  }
+
+
+
   return (
     <div className="wrapper">
         <div className="inner">
@@ -32,23 +55,13 @@ export default function CompanyLogin()
               alt="/" />
           </div>
           <form action="/">
-            <h3>Registration</h3>
+            <h3>LOgin</h3>
 
+      
             <div class="form-wrapper">
-              <input type="text" placeholder="company name" className="form-control"onChange={hendleChange} value={values.com_name} 
-              />
-            </div>
-            {errors.com_name && <p className='error'>{errors.com_name}</p>}
-            <div class="form-wrapper">
-              <input type="text" placeholder="contect person" className="form-control" onChange={hendleChange}  value={values.con_person} />
-               {errors.con_person && <p className='error'>{errors.con_person}</p>}
-               <input type="text" placeholder="contect number" className="form-control" onChange={hendleChange}  value={values.con_num} />
-                {errors.con_num && <p className='error'>{errors.con_num}</p>}
-               <input type="text" placeholder="contect person email" className="form-control" onChange={hendleChange}  value={values.email} />
-               {errors.email && <p className='error'>{errors.email}</p>}
-              <label for="gst_number">GST Number:</label>
-              <input type="text" id="gst_number" name="gst_number" placeholder="Enter GST Number" maxlength="15" pattern="[0-9]{15}" 
-              title="GST number should be 15 digits numeric" value={values.gst}/>
+               <input type="email" placeholder="contect person email" className="form-control" onChange={(e) => setEmail(e.target.value)}  value={employerEmail} />
+
+               <input type="password" placeholder="Password" className="form-control" onChange={(e) => setPassword(e.target.value)}  value={password} />
 
             </div>
             
@@ -57,8 +70,14 @@ export default function CompanyLogin()
             </div>
             {/* {errors.conpass && <p className='error'>{errors.conpass}</p>} */}
             <button className='reg-button'
-             onClick={hendleFromSubmit}
+             onClick={hendleEmployerLogin}
             ><span>submit</span></button>
+
+            <div className="register_Link">
+                <Link to="/CompanyRegistration">
+                  <a href="/">Sign Up</a>
+                </Link>
+            </div>
           </form>
         </div>
       </div>
