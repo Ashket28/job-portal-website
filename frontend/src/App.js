@@ -16,6 +16,9 @@ import NotFound from "./components/NotFound/NotFound";
 import CompanyRegistration from "./components/Auth/CompanyRegistration";
 import PostJobs from "./components/Job/PostJobs";
 import MyJobs from "./components/Job/MyJobs";
+import JobDetails from "./components/Job/JobDetails";
+import Application from "./components/Application/Application";
+import MyApplications from "./components/Application/MyApplications";
 function App() {
 
   const { isAuthorized, setIsAuthorized, setUser } = useContext(Context);
@@ -63,9 +66,12 @@ function App() {
             <Route path='/Home' element={<Home />}></Route>
             <Route path='/CompanyLogin' element={<CompanyLogin />}></Route>
             <Route path='/CompanyRegistration' element={<CompanyRegistration />}></Route>
-            <Route path='/Job' element={<Job />}></Route>
+            <Route path='/Job/getall' element={<Job />}></Route>
             <Route path='/PostJobs' element={<PostJobs />}></Route>
             <Route path='/MyJobs' element={<MyJobs />}></Route>
+            <Route path="/job/:id" element={<JobDetails />} />
+            <Route path="/application/:id" element={<Application />} />
+          <Route path="/applications/me" element={<MyApplications />} />
             <Route  path="*" element={<NotFound />} />
           </Routes>
           <Toaster />

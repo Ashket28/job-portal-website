@@ -196,7 +196,7 @@ export default function Job() {
                                     {jobs.jobs && jobs.jobs.map((element) => {
                                         return (
                                             <div key={element._id} className="middle-jobs-card">
-                                                <Link to="/" className='jobs-card-body'>
+                                                <Link to={`/job/${element._id}`} className='jobs-card-body'>
                                                     <img className='companyLogo' src={element.companyLogo} alt="" />
                                                     <div className='company-info ms-3'>
                                                         <h6>{element.companyName}</h6>

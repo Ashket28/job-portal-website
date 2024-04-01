@@ -67,7 +67,7 @@ export default function Header(props) {
                   </li>
                   <li>
                     {isAuthorized ?
-                      <Link to="/Job" className='menu'>
+                      <Link to="/Job/getall" className='menu'>
                         <div className='menu-icon'> <MdScreenSearchDesktop size={24} /> </div>
                         <span>Jobs</span>
                       </Link> :
