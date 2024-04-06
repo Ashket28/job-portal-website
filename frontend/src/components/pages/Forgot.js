@@ -1,7 +1,6 @@
 import React ,{useState} from 'react'
 import './Forgot.css';
 import img from '../../img/forgotpass.jpg';
-import Validation from '../Validation';
 export default function Adv() {
   const [values,setvalues] = useState({
 		email:""
@@ -15,7 +14,6 @@ export default function Adv() {
 	};
 	const hendleFromSubmit = (event) => {
 		event.preventDefault();
-		setErrors(Validation(values));
 	};
 
 	

@@ -34,9 +34,9 @@ const MyApplications = () => {
     } catch (error) {
       toast.error(error.response.data.message);
     }
-  }, [isAuthorized]);
+  }, [isAuthorized , isAuthorizedEmp]);
 
-  if (!isAuthorized) {
+  if (!isAuthorized && !isAuthorizedEmp) {
     navigateTo("/");
   }
 

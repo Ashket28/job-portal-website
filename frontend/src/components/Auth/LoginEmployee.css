@@ -1,265 +1,161 @@
-/* body {
-  background-color: #9f9da7;
-  font-size: 1.6rem;
-  font-family: "Open Sans", sans-serif;
-  color: #2b3e51;
-}
 
-h2 {
-  font-weight: 300;
-  text-align: center;
-}
-
-p {
-  position: relative;
-}
-
-a,
-a:link,
-a:visited,
-a:active {
-  color: #3ca9e2;
-  -webkit-transition: all 0.2s ease;
-  transition: all 0.2s ease;
-}
-a:focus, a:hover,
-a:link:focus,
-a:link:hover,
-a:visited:focus,
-a:visited:hover,
-a:active:focus,
-a:active:hover {
-  color: #329dd5;
-  -webkit-transition: all 0.2s ease;
-  transition: all 0.2s ease;
-}
-
-#login-form-wrap {
-  background-color: #fff;
-  width: 35%;
-  margin: 30px auto;
-  text-align: center;
-  padding: 20px 0 0 0;
-  border-radius: 4px;
-  box-shadow: 0px 30px 50px 0px rgba(0, 0, 0, 0.2);
-}
-
-#login-form {
-  padding: 0 60px;
-}
-
-input {
-  display: block;
-  box-sizing: border-box;
-  width: 100%;
-  outline: none;
-  height: 60px;
-  line-height: 60px;
-  border-radius: 4px;
-}
-
-input[type="text"],
-input[type="email"] {
-  width: 100%;
-  padding: 0 0 0 10px;
-  margin: 0;
-  color: #8a8b8e;
-  border: 1px solid #c2c0ca;
-  font-style: normal;
-  font-size: 16px;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
-  position: relative;
-  display: inline-block;
-  background: none;
-}
-input[type="text"]:focus,
-input[type="email"]:focus {
-  border-color: #3ca9e2;
-}
-input[type="text"]:focus:invalid,
-input[type="email"]:focus:invalid {
-  color: #cc1e2b;
-  border-color: #cc1e2b;
-}
-
-input[type="submit"] {
-  border: none;
-  display: block;
-  background-color: #3ca9e2;
-  color: #fff;
-  font-weight: bold;
-  text-transform: uppercase;
-  cursor: pointer;
-  -webkit-transition: all 0.2s ease;
-  transition: all 0.2s ease;
-  font-size: 18px;
-  position: relative;
-  display: inline-block;
-  cursor: pointer;
-  text-align: center;
-}
-input[type="submit"]:hover {
-  background-color: #329dd5;
-  -webkit-transition: all 0.2s ease;
-  transition: all 0.2s ease;
-}
-
-#create-account-wrap {
-  background-color: #eeedf1;
-  color: #8a8b8e;
-  font-size: 14px;
-  width: 100%;
-  padding: 10px 0;
-  border-radius: 0 0 4px 4px;
-} */
-
-.authPage {
-  display: flex;
-  min-width: 380px;
-  max-width: 380px;
-  margin: 0 auto;
+.login-wrap {
   min-height: 100vh;
+  position: relative;
+  background: url('../../img/o/Dollarphotoclub_81170161.jpg') no-repeat center;
+  background-size: cover;
 }
-.authPage .container {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  background: #fff;
-  padding: 20px 20px;
-}
-.authPage .container .header {
-  display: flex;
-  gap: 15px;
-  flex-direction: column;
-}
-.authPage .container .header h3 {
-  font-size: 1.6rem;
-}
-.authPage .container .header {
-  text-align: center;
-  margin-bottom: 30px;
-}
-.authPage .container form {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-.authPage .container form .inputTag {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-.authPage .container form .inputTag div {
-  display: flex;
-  align-items: center;
-  border-radius: 7px;
-}
-.authPage .container form .inputTag div input,
-.authPage .container form .inputTag div select {
-  background: #87878778;
-  padding: 8px;
-  border: none;
+
+.login-html {
   width: 100%;
   height: 100%;
-}
-.authPage .container form .inputTag div input:focus,
-.authPage .container form .inputTag div select:focus {
-  outline: none;
-}
-.authPage .container form .inputTag div svg {
-  width: 10%;
-  font-size: 1.5rem;
-  background: #2d5649;
-  height: 100%;
-  padding: 8px;
-  color: #fff;
+  position: absolute;
+  background: rgba(35, 114, 182, 0.942);
 }
 
-input[type="password"]:valid ~ .True_validator,
-input[type="email"]:valid ~ .True_validator {
-  display: block;
-  border-color: #0C0;
-}
-input[type="password"]:valid ~ .True_validator span,
-input[type="email"]:valid ~ .True_validator span {
-  background: #0C0;
+.login-html .container {
+  width: 340px;
+  height: 480px;
+  background: transparent;
   position: absolute;
-  border-radius: 6px;
-}
-input[type="password"]:valid ~ .True_validator span:first-child,
-input[type="email"]:valid ~ .True_validator span:first-child {
-  top: 30px;
-  left: 14px;
-  width: 20px;
-  height: 3px;
-  -webkit-transform: rotate(-45deg);
-          transform: rotate(-45deg);
-}
-input[type="password"]:valid ~ .True_validator span:last-child,
-input[type="email"]:valid ~ .True_validator span:last-child {
-  top: 35px;
-  left: 8px;
-  width: 11px;
-  height: 3px;
-  -webkit-transform: rotate(45deg);
-          transform: rotate(45deg);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 7px;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 1rem;
 }
 
-.True_validator {
-  display: none;
-  position: absolute;
-  content: " ";
+.container h2 {
+  color: white;
+}
+
+.container h2 i {
+  padding-left: 10px;
+}
+
+.text span {
+  background: white;
+  color: #0A66C3;
+  padding: 0px 7px 0px 7px;
+  border-radius: 5px;
+}
+
+.text h1 {
+  color: #f3eeec;
+}
+
+.text p {
+  font-size: .8rem;
+  padding-top: 0.3rem;
+  color: white;
+}
+
+.input {
+  position: relative;
+  width: 100%;
   height: 60px;
-  width: 30px;
-  margin-left: 19rem;
-  margin-top: -3px;
+  margin-bottom: 0.7em;
 }
 
-.authPage .container form button {
-  padding: 12px;
-  text-align: center;
+.your-input input {
+  width: 100%;
+  height: 45px;
+  padding-left: 20px;
+  outline: none;
   border: none;
-  margin-top: 25px;
-  font-weight: 700;
-  color: #fff;
-  background: #2d5649;
-  font-size: 1.2rem;
-  border-radius: 7px;
+  border-radius: 30px;
+  transition: .2s;
+  font-size: large;
 }
-.authPage .container form a {
-  padding: 12px;
+
+.abcd::placeholder {
+  padding-left: 15px;
+}
+
+.your-input label {
+  position: absolute;
+  top: 30%;
+  left: 10px;
+  font-size: 1.1rem;
+  color: #8c8c8c;
+  transition: .2s;
+}
+
+.input input:focus~label,
+.input input:valid~label {
+  top: 10%;
+  font-size: .8rem;
+  color: white;
+}
+
+.input input:focus {
+  border-width: 2px;
+  border-color: white;
+}
+
+.forgot-password-link {
+  display: flex;
+  margin-left: 6px;
+  margin-top: -30px;
+  margin-bottom: -16px;
+  color: white;
+  transition: .3s;
+}
+
+.forgot-password-link:hover {
+  color: rgba(0, 0, 0, 0.942);;
+}
+
+.js-login-sign-btn {
+  padding: 10px 15px;
+  height: 45px;
+  background: white;
+  outline: 3px white solid;
+  outline-offset: -3px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  border-radius: 30px;
+  transition: 400ms;
   text-align: center;
-  border: 1px solid #2d5649;
-  margin-top: 25px;
+  align-items: center;
+}
+
+.js-login-sign-btn .text {
+  color: #0A66C3;
   font-weight: 700;
-  color: #2d5649;
-  font-size: 1.2rem;
+  font-size: 1em;
+  transition: 400ms;
+}
+
+.js-login-sign-btn:hover {
+  background-color: transparent;
+}
+
+.js-login-sign-btn:hover .text {
+  color: white;
+}
+
+
+.join-link {
   text-decoration: none;
-  border-radius: 7px;
+  font-weight: bolder;
+  color: white;
+  display: flex;
+  justify-content: center;
 }
-/* @media (max-width: 1520px) {
-  .authPage {
-    min-width: 100%;
-  }
+
+.join-now {
+  color: white;
+  margin-left: 5px;
+  transition: .3s;
+
 }
-@media (max-width: 830px) {
-  .authPage {
-    min-height: 100vh;
-    height: auto;
-  }
-  .authPage .container {
-    flex: none;
-    width: 100%;
-    justify-content: flex-start;
-    padding: 40px 20px;
-  }
-  .authPage .banner {
-    flex: none;
-    display: none;
-  }
-} */
 
-
+.join-now:hover {
+  color: rgba(0, 0, 0, 0.3);
+}

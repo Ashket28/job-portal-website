@@ -19,17 +19,22 @@ import MyJobs from "./components/Job/MyJobs";
 import JobDetails from "./components/Job/JobDetails";
 import Application from "./components/Application/Application";
 import MyApplications from "./components/Application/MyApplications";
-function App() {
+import AdminDashBoard from "./Admin/Pages/AdminDashBoard";
+import AboutUs from "./components/pages/AboutUs";
+import ContactUs from "./components/pages/ContactUs";
 
+function App() {
+ const context = useContext(Context);
   const { isAuthorized, setIsAuthorized, setUser } = useContext(Context);
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const response = await axios.get("http://localhost:4000/api/v1/user/getuser",{withCredentials: true,});
+        const response = await axios.get("http://localhost:4000/api/v1/user/getuser", { withCredentials: true, });
         setUser(response.data.user);
         console.log(response.data.user)
         setIsAuthorized(true);
       } catch (error) {
+        console.log(error)
         setIsAuthorized(false);
       }
     };
@@ -40,7 +45,7 @@ function App() {
   useEffect(() => {
     const fetchEmployer = async () => {
       try {
-        const response = await axios.get("http://localhost:4000/api/v1/employer/getEmployer",{withCredentials: true,});
+        const response = await axios.get("http://localhost:4000/api/v1/employer/getEmployer", { withCredentials: true, });
         setEmployer(response.data.employer);
         console.log(response.data.employer)
         setIsAuthorizedEmp(true);
@@ -57,27 +62,30 @@ function App() {
   return (
     <>
       <BrowserRouter>
-          <Routes>
-            <Route path='/' element={<HomeIntro />}></Route>
-            <Route path='/LoginEmployee' element={<LoginEmployee />}></Route>
-            <Route path='/RegistrationEmployee' element={<RegistrationEmployee />}></Route>
-            <Route path='/Forgot' element={<Forgot />}></Route>
-            {/* <Route path='/WizardForm' element={<WizardForm />}></Route> */}
-            <Route path='/Home' element={<Home />}></Route>
-            <Route path='/CompanyLogin' element={<CompanyLogin />}></Route>
-            <Route path='/CompanyRegistration' element={<CompanyRegistration />}></Route>
-            <Route path='/Job/getall' element={<Job />}></Route>
-            <Route path='/PostJobs' element={<PostJobs />}></Route>
-            <Route path='/MyJobs' element={<MyJobs />}></Route>
-            <Route path="/job/:id" element={<JobDetails />} />
-            <Route path="/application/:id" element={<Application />} />
+        <Routes>
+          <Route path='/AdminDashBoard' element={<AdminDashBoard />}></Route>
+          <Route path='/' element={<HomeIntro />}></Route>
+          <Route path='/LoginEmployee' element={<LoginEmployee />}></Route>
+          <Route path='/RegistrationEmployee' element={<RegistrationEmployee />}></Route>
+          <Route path='/Forgot' element={<Forgot />}></Route>
+          {/* <Route path='/WizardForm' element={<WizardForm />}></Route> */}
+          <Route path='/Home' element={<Home />}></Route>
+          <Route path='/CompanyLogin' element={<CompanyLogin />}></Route>
+          <Route path='/CompanyRegistration' element={<CompanyRegistration />}></Route>
+          <Route path='/Job/getall' element={<Job />}></Route>
+          <Route path='/PostJobs' element={<PostJobs />}></Route>
+          <Route path='/MyJobs' element={<MyJobs />}></Route>
+          <Route path="/job/:id" element={<JobDetails />} />
+          <Route path="/application/:id" element={<Application />} />
           <Route path="/applications/me" element={<MyApplications />} />
-            <Route  path="*" element={<NotFound />} />
-          </Routes>
-          <Toaster />
+          <Route path='/AboutUs' element={<AboutUs />}></Route>
+          <Route path='/ContactUs' element={<ContactUs />}></Route>
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+        <Toaster />
       </BrowserRouter>
     </>
   );
 }
 
-export default App;
+export default App; 

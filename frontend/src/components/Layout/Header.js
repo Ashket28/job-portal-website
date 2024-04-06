@@ -13,7 +13,18 @@ export default function Header(props) {
 
 
   const [show, setShow] = useState(false);
-  const { isAuthorized, setIsAuthorized, user, isAuthorizedEmp, setIsAuthorizedEmp, employer } = useContext(Context);
+  const { isAuthorized,
+    setIsAuthorized,
+    user,
+    setUser,
+    isAuthorizedEmp,
+    setIsAuthorizedEmp,
+    employer,
+    setEmployer,
+    isAuthorizedAdmin,
+    setIsAuthorizedAdmin,
+    admin,
+    setAdmin, } = useContext(Context);
   const navigateTo = useNavigate();
   // console.log("header" + isAuthorized)
   const handleLogout = async () => {
@@ -21,7 +32,7 @@ export default function Header(props) {
       const response = await axios.get("http://localhost:4000/api/v1/user/logout", { withCredentials: true, });
       toast.success(response.data.message);
       setIsAuthorized(false);
-      navigateTo("/LoginEmployee");
+      navigateTo("/");
     } catch (error) {
       toast.error(error.response.data.message);
       setIsAuthorized(true);
@@ -33,12 +44,14 @@ export default function Header(props) {
       const response = await axios.get("http://localhost:4000/api/v1/employer/empLogout", { withCredentials: true, });
       toast.success(response.data.message);
       setIsAuthorizedEmp(false);
-      navigateTo("/CompanyLogin");
+      navigateTo("/");
     } catch (error) {
       toast.error(error.response.data.message);
       setIsAuthorizedEmp(true);
     }
   };
+
+
 
 
 
@@ -71,36 +84,42 @@ export default function Header(props) {
                         <div className='menu-icon'> <MdScreenSearchDesktop size={24} /> </div>
                         <span>Jobs</span>
                       </Link> :
-                       <Link to="/PostJobs" className='menu'>
-                       <div className='menu-icon'> <MdScreenSearchDesktop size={24} /> </div>
-                       <span>PostJobs</span>
-                     </Link>
+                      <Link to="/PostJobs" className='menu'>
+                        <div className='menu-icon'> <MdScreenSearchDesktop size={24} /> </div>
+                        <span>PostJobs</span>
+                      </Link>
                     }
                   </li>
                   <li>
-                  {isAuthorized ?
+                    {isAuthorized ?
                       <Link to="/" className='menu'>
                         <div className='menu-icon'> <HiBuildingOffice2 size={24} /> </div>
                         <span>Company</span>
                       </Link> :
-                       <Link to="/MyJobs" className='menu'>
-                       <div className='menu-icon'> <HiBuildingOffice2 size={24} /> </div>
-                       <span>MyJobs</span>
-                     </Link>
+                      <Link to="/MyJobs" className='menu'>
+                        <div className='menu-icon'> <HiBuildingOffice2 size={24} /> </div>
+                        <span>MyJobs</span>
+                      </Link>
                     }
                   </li>
                   <li>
-                    <a href="/" className='menu'>
+                    <Link to="/AboutUs" className='menu'>
                       <div className='menu-icon'> <PiUsersThreeFill size={24} /> </div>
                       <span>About us</span>
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="/" className='menu'>
-                      <div className='menu-icon'> <IoMdNotifications size={24} /> </div>
+                    <Link to="/ContactUs" className='menu'>
+                      <div className='menu-icon'> <PiUsersThreeFill size={24} /> </div>
+                      <span>Contact Us</span>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/applications/me" className='menu'>
+                      <div className='menu-icon'> <IoMdNotifications size={24} /></div>
                       <span>Notifications</span>
                       <div className="notification-alert">3</div>
-                    </a>
+                    </Link>
                   </li>
                   <li>
                     <a href="/" className='menu'>

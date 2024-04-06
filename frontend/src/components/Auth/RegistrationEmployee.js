@@ -50,8 +50,8 @@ export default function RegistrationEmployee() {
   }
 
   return (
-    <div>
-      <div className="wrapper ">
+    <>
+      {/* <div className="wrapper ">
         <div className="inner row">
           <div className="registra-image-holder col-6">
             <img src={img} alt="/" />
@@ -67,9 +67,6 @@ export default function RegistrationEmployee() {
             <div className="form-wrapper">
               <input type="password" placeholder="Password" className="form-control" name="password" onChange={(e) => setPassword(e.target.value)} value={password} autoComplete="" />
             </div>
-            {/* <div className="form-wrapper">
-              <input type="password" placeholder="Confirm Password" className="form-control" name="conpass" onChange={hendleChange} value={values.conpass} />
-            </div> */}
             <button className='reg-button' style={{marginLeft:"6rem"}} onClick={hendleRegister}>  <span>submit</span></button>
             <p className="p-reg">---------- or--------- </p>
 
@@ -87,7 +84,7 @@ export default function RegistrationEmployee() {
 
             </div>
 
-            <div className="sing_in_link">~
+            <div className="sing_in_link">
               <a href="/">
                 <Link to={"/LoginEmployee"}>sing in</Link>
               </a>
@@ -95,7 +92,54 @@ export default function RegistrationEmployee() {
 
           </form>
         </div>
-      </div>
-    </div>
+      </div> */}
+
+<div className="login-wrap">
+				<div className="login-html">
+					<div className="container" style={{height:"540px"}}>
+						{/* <h2>
+								jobi
+								<span>
+								<i className="fab fa-linkedin"></i>
+								</span>
+							</h2> 
+						*/}
+						<div className="text">
+							<h1>Sign <span style={{paddingBottom:"5px"}}>up</span></h1>
+							<p>Stay updated on your professional world</p>
+						</div>
+						<div className="your-input">
+							<div className="input">
+              <input type="text" placeholder="Username" className="form-control" 
+              onChange={(e) => setName(e.target.value)} name="username" value={name} />
+              </div>
+							<div className="input">
+              <input type="text" placeholder="Email Address" className="form-control" 
+              onChange={(e) => setEmail(e.target.value)} name="email" value={email} />
+							</div>
+              <div className="input">
+              <input type="password" placeholder="Password" className="form-control" name="password" 
+              onChange={(e) => setPassword(e.target.value)} value={password} autoComplete="" />
+							</div>
+						</div>
+						<a href="google,com" className="forgot-password-link" style={{marginBottom:"7px",marginTop:"-16px"}}>
+							Forgot Password?
+						</a>
+						<button type="submit" className="js-login-sign-btn" onClick={hendleRegister}>
+              <p className="text">
+              Sign Up
+              </p>
+           </button>
+            <p className="join-link">
+            Have an account?
+							<Link className="join-now" to={"/LoginEmployee"}>Log in Now</Link>
+						</p>
+					</div>
+				</div>
+			</div>
+    </>
+  
+    
+
   )
 }
