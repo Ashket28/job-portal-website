@@ -62,3 +62,4 @@ export const getEmployer = catchAsyncErrors((req, res, next) => {
     employer,
   });
 });
+

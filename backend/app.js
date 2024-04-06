@@ -6,6 +6,7 @@ import fileUpload from 'express-fileupload';
 import userRouter  from './routes/JobSeekerRoutes/userRouter.js'
 import jobRouter from './routes/JobSeekerRoutes/jobRoutes.js'
 import employerRouter from './routes/EmployerRoutes/EmployerRouter.js'
+import AdminRoutes from './routes/Admin/AdminRoutes.js'
 import {dbConnection} from './database/dbconnection.js';
 import {errorMiddleware} from './middlewares/error.js';
 import applicationRouter from './routes/JobSeekerRoutes/applicationRoutes.js'
@@ -41,6 +42,8 @@ app.use("/api/v1/job" , jobRouter);
 app.use("/api/v1/employer", employerRouter);
 
 //-------------------------------------------------
+app.use("/api/v1/admin", AdminRoutes);
+
 
 dbConnection();
 
