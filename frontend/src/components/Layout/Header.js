@@ -115,17 +115,18 @@ export default function Header(props) {
                     </Link>
                   </li>
                   <li>
-                    <Link to="/applications/me" className='menu'>
+                    {/* <Link to="/applications/me" className='menu'> */}
+                    <Link to="/Notification" className='menu'>
                       <div className='menu-icon'> <IoMdNotifications size={24} /></div>
                       <span>Notifications</span>
                       <div className="notification-alert">3</div>
                     </Link>
                   </li>
                   <li>
-                    <a href="/" className='menu'>
+                  <Link to="/Profile" className='menu'>
                       <div className='menu-icon'> <FaUserCircle size={24} color='rgb(4, 241, 55)' /> </div>
                       <span>Me<FaCaretDown size={15} /></span>
-                    </a>
+                      </Link>
                   </li>
                 </ul>
               </div>

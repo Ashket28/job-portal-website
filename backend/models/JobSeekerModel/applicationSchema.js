@@ -25,6 +25,34 @@ const applicationSchema = new mongoose.Schema({
     type: String,
     required: [true, "Please enter your Address!"],
   },
+  gender: {
+    type: String,
+    required: [true, "Please provide a cover letter!"],
+  },
+  dob: {
+    type: String,
+    required: [true, "Please provide a cover letter!"],
+  },
+  collegeName: {
+    type: String,
+    required: [true, "Please provide a cover letter!"],
+  },
+  Department: {
+    type: String,
+    required: [true, "Please provide a cover letter!"],
+  },
+  degree: {
+    type: String,
+    required: [true, "Please provide a cover letter!"],
+  },
+  academicStart: {
+    type: String,
+    required: [true, "Please provide a cover letter!"],
+  },
+  academicEnd: {
+    type: String,
+    required: [true, "Please provide a cover letter!"],
+  },
   resume: {
     public_id: {
       type: String, 

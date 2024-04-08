@@ -198,7 +198,7 @@ export default function WizardForm() {
                                                     : <button className='wizard-nextbutton' type='submit'>
                                                         Next <i className="fa-solid fa-angle-right"></i>
                                                     </button>
-                                                }                                               
+                                                }                                                
                                             </div>
                                         </div>
                                     </div>

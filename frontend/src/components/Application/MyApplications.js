@@ -89,7 +89,7 @@ const MyApplications = () => {
             })
           )}
         </div>
-      ) : (
+       ) : (
         <div className="container">
           <h1>Applications From Job Seekers</h1>
           {applications.length <= 0 ? (

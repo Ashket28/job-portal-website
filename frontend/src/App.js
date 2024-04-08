@@ -22,6 +22,8 @@ import MyApplications from "./components/Application/MyApplications";
 import AdminDashBoard from "./Admin/Pages/AdminDashBoard";
 import AboutUs from "./components/pages/AboutUs";
 import ContactUs from "./components/pages/ContactUs";
+import Profile from './components/pages/Profile';
+import Notification from './components/pages/Notification';
 
 function App() {
  const context = useContext(Context);
@@ -80,6 +82,8 @@ function App() {
           <Route path="/applications/me" element={<MyApplications />} />
           <Route path='/AboutUs' element={<AboutUs />}></Route>
           <Route path='/ContactUs' element={<ContactUs />}></Route>
+          <Route path='/Profile' element={<Profile />}></Route>
+          <Route path='/Notification' element={<Notification />}></Route>
           <Route path="*" element={<NotFound />} />
         </Routes>
         <Toaster />

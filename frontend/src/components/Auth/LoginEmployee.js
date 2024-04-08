@@ -66,15 +66,16 @@ export default function LoginEmployee() {
 				toast.error(error.response.data.message);
 			}
 		};
-		if (isAuthorizedAdmin) {
-			console.log("admin : " + " " + isAuthorized, isAuthorizedAdmin, isAuthorizedEmp)
-			navigateTo('/AdminDashBoard');
-		}
-		if (isAuthorized) {
-			console.log("user : " + " " + isAuthorized, isAuthorizedAdmin, isAuthorizedEmp)
-			navigateTo('/Home');
-		}
+		
 	};
+	if (isAuthorizedAdmin) {
+		console.log("admin : " + " " + isAuthorized, isAuthorizedAdmin, isAuthorizedEmp)
+		navigateTo('/AdminDashBoard');
+	}
+	if (isAuthorized) {
+		console.log("user : " + " " + isAuthorized, isAuthorizedAdmin, isAuthorizedEmp)
+		navigateTo('/Home');
+	}
 
 	
 

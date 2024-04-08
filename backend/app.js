@@ -10,6 +10,7 @@ import AdminRoutes from './routes/Admin/AdminRoutes.js'
 import {dbConnection} from './database/dbconnection.js';
 import {errorMiddleware} from './middlewares/error.js';
 import applicationRouter from './routes/JobSeekerRoutes/applicationRoutes.js'
+import userPostRoutes from './routes/JobSeekerRoutes/userPostRoutes.js'
 
 const app = express();
 dotenv.config({ path: "./config/config.env" });
@@ -43,6 +44,8 @@ app.use("/api/v1/employer", employerRouter);
 
 //-------------------------------------------------
 app.use("/api/v1/admin", AdminRoutes);
+
+app.use("/api/v1/userPost", userPostRoutes);
 
 
 dbConnection();

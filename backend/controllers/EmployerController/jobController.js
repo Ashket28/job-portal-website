@@ -28,7 +28,7 @@ export const postJob = catchAsyncErrors(async (req, res, next) => {
   }
 
   const postedBy = req.employer._id;
-  console.log(postedBy);
+  // console.log(postedBy);
   const job = await Job.create({
     companyName,
     jobTitle,

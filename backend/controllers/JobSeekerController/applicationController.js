@@ -27,10 +27,18 @@ export const postApplication = catchAsyncErrors(async (req, res, next) => {
     );
     return next(new ErrorHandler("Failed to upload Resume to Cloudinary", 500));
   }
-  const { name, email, coverLetter, phone, address, jobId } = req.body;
+  const { name, email, coverLetter, phone, address, gender,
+    dob,
+    collegeName,
+    Department,
+    degree,
+    academicStart,
+    academicEnd,
+    jobId, } = req.body;
   const applicantID = {
     user: req.user._id,
   };
+  console.log(resume);
   if (!jobId) {
     return next(new ErrorHandler("Job not found!", 404));
   }
@@ -42,16 +50,25 @@ export const postApplication = catchAsyncErrors(async (req, res, next) => {
   const employerID = {
     employer: jobDetails.postedBy,
   };
+  console.log(employerID)
   if (
     !name ||
     !email ||
     !coverLetter ||
     !phone ||
     !address ||
+    !gender ||
+    !dob ||
+    !collegeName ||
+    !Department ||
+    !degree ||
+    !academicStart ||
+    !academicEnd ||
     !applicantID ||
     !employerID ||
-    !resume
-  ) {
+    !resume 
+  ) 
+  {
     return next(new ErrorHandler("Please fill all fields.", 400));
   }
   const application = await Application.create({
@@ -60,6 +77,13 @@ export const postApplication = catchAsyncErrors(async (req, res, next) => {
     coverLetter,
     phone,
     address,
+    gender,
+    dob,
+    collegeName,
+    Department,
+    degree,
+    academicStart,
+    academicEnd,
     applicantID,
     employerID,
     resume: {

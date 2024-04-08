@@ -227,47 +227,7 @@ const JobDetails = () => {
       </div>
 
     </>
-    // <section className="jobDetail page">
-    //   <div className="container">
-    //     <h3>Job Details</h3>
-    //     <div className="banner">
-    //       <p>
-    //         Company Name: <span> {job.companyName}</span>
-    //       </p>
-    //       <p>
-    //         Job Titile: <span>{job.jobTitle}</span>
-    //       </p>
-    //       <p>
-    //         Company LOgo: <span><img src={job.companyLogo} alt="/" /></span>
-    //       </p>
-    //       <p>
-    //         Country: <span>{job.country}</span>
-    //       </p>
-    //       <p>
-    //         City: <span>{job.city}</span>
-    //       </p>
-    //       <p>
-    //         Location: <span>{job.location}</span>
-    //       </p>
-    //       <p>
-    //         Description: <span>{job.description}</span>
-    //       </p>
-    //       <p>
-    //         Job Posted On: <span>{job.jobPostedOn}</span>
-    //       </p>
-    //       <p>
-    //       Salary : 
-    //           <span>
-    //             {job.salaryFrom} - {job.salaryTo}
-    //           </span>
-
-    //       </p>
-
-    //         <Link to={`/application/${job._id}`}>Apply Now</Link>
-
-    //     </div>
-    //   </div>
-    // </section>
+    
   );
 };
 
